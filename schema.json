@@ -289,6 +289,10 @@
       "ACL": {
         "type": "ACL"
       },
+      "pathId": {
+        "type": "String",
+        "required": true
+      },
       "optionId": {
         "type": "Pointer",
         "required": true,
@@ -296,7 +300,7 @@
       },
       "nextQuestionId": {
         "type": "Pointer",
-        "required": true,
+        "required": false,
         "targetClass": "Question"
       },
       "startingQuestionId": {

@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { McqComponent } from './mcq-component/mcq.component';
-const routes: Routes = [{ path: 'AI', component: McqComponent }];
+import { AIPrescriptionComponent } from './aiprescription/aiprescription.component';
+const routes: Routes = [
+  { path: 'AI', component: McqComponent },
+  { path: 'AI-Prescription/:id', component: AIPrescriptionComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
