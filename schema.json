@@ -159,6 +159,58 @@
     }
   },
   {
+    "className": "Path",
+    "fields": {
+      "objectId": {
+        "type": "String"
+      },
+      "createdAt": {
+        "type": "Date"
+      },
+      "updatedAt": {
+        "type": "Date"
+      },
+      "ACL": {
+        "type": "ACL"
+      },
+      "name": {
+        "type": "String",
+        "required": true
+      },
+      "startingQuestionId": {
+        "type": "Pointer",
+        "required": true,
+        "targetClass": "Question"
+      }
+    },
+    "classLevelPermissions": {
+      "find": {
+        "*": true
+      },
+      "get": {
+        "*": true
+      },
+      "count": {
+        "*": true
+      },
+      "create": {
+        "*": true
+      },
+      "update": {
+        "*": true
+      },
+      "delete": {
+        "*": true
+      },
+      "addField": {
+        "*": true
+      },
+      "protectedFields": {
+        "*": []
+      }
+    }
+  },
+  {
     "className": "Options",
     "fields": {
       "objectId": {
@@ -275,7 +327,7 @@
     }
   },
   {
-    "className": "Path",
+    "className": "PathNode",
     "fields": {
       "objectId": {
         "type": "String"
@@ -290,8 +342,9 @@
         "type": "ACL"
       },
       "pathId": {
-        "type": "String",
-        "required": true
+        "type": "Pointer",
+        "required": true,
+        "targetClass": "Path"
       },
       "optionId": {
         "type": "Pointer",
@@ -301,11 +354,6 @@
       "nextQuestionId": {
         "type": "Pointer",
         "required": false,
-        "targetClass": "Question"
-      },
-      "startingQuestionId": {
-        "type": "Pointer",
-        "required": true,
         "targetClass": "Question"
       }
     },

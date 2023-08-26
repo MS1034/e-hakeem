@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ParseService } from '../service/parse.service';
 
 @Component({
   selector: 'app-mcq-component',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class McqComponent {
   loadingQuestion = false;
-
+  pathId: string | null = null;
   //Todo: Remove When Backend is connected
   questions: any = [
     {
@@ -46,15 +48,6 @@ export class McqComponent {
       options: [
         { optionId: 1, optionStatement: 'Yes', nextQuestion: '7' },
         { optionId: 2, optionStatement: 'No', nextQuestion: '8' },
-      ],
-    },
-    {
-      pathId: '1',
-      questionId: '5',
-      questionStatement: 'Cough diagnostic Question',
-      options: [
-        { optionId: 1, optionStatement: 'Yes', nextQuestion: '9' },
-        { optionId: 2, optionStatement: 'No', nextQuestion: '9' },
       ],
     },
     {
@@ -104,27 +97,47 @@ export class McqComponent {
       ],
     },
   ];
+  currentQuestion: any;
+  constructor(
+    private router: Router,
+    private service: ParseService,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.pathId = params.get('id');
+      this.loadingQuestion = true;
+      if (this.pathId != null) {
+      this.currentQuestion = this.service.getFirstQuestion(this.pathId);
 
-  currentQuestion = this.questions[0];
-
-  constructor(private router: Router) {}
+        // alert(JSON.stringify(this.currentQuestion));
+      }
+      // this.currentQuestion = this.questions[0];
+      //Todo: Handle if there is no pathId
+      this.loadingQuestion = false;
+    });
+  }
 
   loadNextQuestion(option: any) {
     this.loadingQuestion = true;
-    setTimeout(() => {
-      const ques = this.questions.find(
-        (question: { questionId: any }) =>
-          question.questionId == option.nextQuestion
-      );
+    const ques: string | null = option.nextQuestion;
+    // const ques: string | null = option.nextQuestionId;
 
-      if (ques) {
-        //Todo: Parse Method to get next question
-        this.currentQuestion = ques;
-      } else {
-        //Todo: Navigate to solution if null
-        this.router.navigate(['/AI-Prescription', this.currentQuestion.pathId]);
+    if (this.pathId && ques) {
+      // this.currentQuestion = this.questions[0];
+      // this.currentQuestion = this.questions[0];
+      this.currentQuestion = this.questions.find(
+        (q: { questionId: any }) => q.questionId === option.nextQuestion
+      );
+      if (!this.currentQuestion) {
+        this.router.navigate(['/AI-Prescription', this.pathId]);
       }
-      this.loadingQuestion = false;
-    }, 1000);
+      //this.currentQuestion = this.service.getNextQuestion(ques, this.pathId);
+    } else if (this.pathId) {
+      this.router.navigate(['/AI-Prescription', this.pathId]);
+    } else {
+      //Todo: Handle if there is no pathId
+    }
+    this.loadingQuestion = false;
   }
 }

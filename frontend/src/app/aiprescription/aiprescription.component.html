@@ -1,0 +1,122 @@
+<div
+  class="bg-gray-100 min-h-screen py-8"
+  *ngIf="loadingContent; else loadedContent"
+>
+  <div class="max-w-3xl mx-auto px-4 animate-pulse">
+    <div class="bg-white shadow rounded-lg p-6">
+      <h1 class="w-full h-6 mb-8 rounded-sm bg-gray-200 dark:bg-gray-700"></h1>
+      <ng-container *ngFor="let i of [1, 2, 3, 4]">
+        <section class="mb-8 animate">
+          <h2
+            class="text-xl space-y-2.5 font-semibold mb-4 text-white bg-gray-600 w-1/2 p-1 rounded-sm"
+          ></h2>
+          <!-- <ul class="list-inside list-disc space-y-2">
+            <li
+              *ngFor="let j of [1, 2, 3]"
+              class="w-full h-6 mb-2 rounded-sm bg-gray-200 dark:bg-gray-700"
+            ></li>
+          </ul> -->
+
+          <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+            <div class="flex items-center w-full space-x-2">
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[480px]">
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"
+              ></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[400px]">
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[480px]">
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"
+              ></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[440px]">
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"
+              ></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[360px]">
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"
+              ></div>
+              <div
+                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"
+              ></div>
+            </div>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </section>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadedContent>
+  <div class="bg-gray-100 min-h-screen py-8">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="bg-white shadow rounded-lg p-6">
+        <h1
+          class="max-[280px]:text-xl text-2xl sm:text-3xl font-semibold text-center mb-6"
+        >
+          AI-Driven Wellness Guidelines
+        </h1>
+
+        <ng-container *ngFor="let section of solution.sections">
+          <section class="mb-8">
+            <h2
+              class="text-xl font-semibold mb-4 text-white bg-blue-700 w-fit p-1 rounded-sm"
+            >
+              {{ section.title }}
+            </h2>
+            <ul class="list-inside list-disc space-y-2">
+              <li class="iconli" *ngFor="let item of section.items">
+                {{ item }}
+              </li>
+            </ul>
+          </section>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
