@@ -7,6 +7,7 @@ import * as Parse from 'parse';
 export class ParseService {
   constructor() {
     Parse.initialize('myAppId', 'myMasterKey');
+    (Parse as any).serverURL = 'http://localhost:1336/parse';
   }
   async getFirstQuestion(pathId: String) {
     const params = {
@@ -14,6 +15,9 @@ export class ParseService {
     };
     try {
       console.log(Parse.serverURL);
+      console.log(JSON.stringify(params));
+      console.log('JSON.stringify(result)');
+
       const result = await Parse.Cloud.run('getFirstQuestion', params);
       return result;
     } catch (error) {

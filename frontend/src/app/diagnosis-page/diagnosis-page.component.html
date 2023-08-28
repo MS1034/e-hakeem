@@ -1,0 +1,56 @@
+<app-nav-bar [step]="1" />
+
+
+<section class="py-24 px-8 items-center justify-center w-full">
+    <div class="flex flex-col ">
+        <div class="mb-4 md:mb-6">
+            <h2 class="text-3xl md:text-5xl font-light text-teal-800">Let's Begin</h2>
+            <p class="text-base md:text-lg text-gray-500">Treat your minor ailments with AI and natural remedies.</p>
+        </div>
+        <app-health-condition-input (promptSubmitted)="handlePromptSubmitted($event)" />
+        <div class="mt-8">
+
+            <h2 class="text-2xl md:text-3xl font-semibold text-teal-700">How It Works</h2>
+            <div class="border border-gray-300 mt-1 mb-5"></div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-6 lg:p-8">
+                    <p
+                        class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:text-teal-400 mb-2">
+                        Condition Prompt
+                    </p>
+                    <h2 class="text-lg md:text-xl font-semibold mb-2">Share How You Feel</h2>
+                    <p class="text-sm md:text-md text-gray-500 text-justify">
+                        Provide information about your current health condition and any symptoms you are experiencing.
+                        Our AI will analyze your inputs to understand your situation.
+                    </p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-6 lg:p-8">
+                    <p
+                        class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:text-teal-400 mb-2">
+                        Symptoms Assessment
+                    </p>
+                    <h2 class="text-lg md:text-xl font-semibold mb-2">AI-Powered Assessment</h2>
+                    <p class="text-sm md:text-md text-gray-500 text-justify">
+                        Our advanced AI algorithms will analyze your provided information and compare it with a vast
+                        medical database to identify potential health issues and suggest possible causes.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-md p-4 md:p-6 lg:p-8">
+                    <p
+                        class="bg-teal-100 text-teal-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:text-teal-400 mb-2">
+                        Herbal Solutions & Guidelines
+                        </p>
+                        <h2 class="text-lg md:text-xl font-semibold mb-2">Natural Remedies and Guidance</h2>
+                        <p class="text-sm md:text-md text-gray-500 text-justify">
+                            Receive personalized herbal solutions, dietary restrictions, and regimen therapy
+                            recommendations
+                            to support your health and well-being naturally.
+                        </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

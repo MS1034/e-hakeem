@@ -13,34 +13,38 @@ export class AIPrescriptionComponent {
     pathId: '7XwloZtxCO',
     sections: [
       {
-        title: 'Regimenal Therapy 💆‍♂️',
+        title: 'Regimenal Therapy ',
         items: [
           'Steam inhalation (Inkibāb)',
           'Fomentation on chest (Takmīd)',
           'Oil massage on chest (Tadhīn)',
         ],
+        imgSource: '/assets/R.svg',
       },
       {
-        title: 'Dietary Recommendations 🍉',
+        title: 'Dietary Recommendations',
         items: [
           'Aghziya Murattiba for dry cough',
           'Goat milk for dry cough',
           'Mā’ al-Sha‘īr prepared with crabs',
           'Mā’ al-‘Asl',
         ],
+        imgSource: '/assets/R.svg',
       },
       {
-        title: 'Dietary Restrictions 🚫',
+        title: 'Dietary Restrictions ',
         items: ['Aghziya Munaffikha', 'Aghziya Qābiza'],
+        imgSource: '/assets/R.svg',
       },
       {
-        title: 'Prevention Strategies 🛡️',
+        title: 'Prevention Strategies',
         items: [
           'Excessive sleep to be avoided when cough is associated with coryza',
           'Regimens producing cold, heat, or roughness in the body to be avoided',
           'Drugs and diets producing roughness in trachea to be avoided',
           'Smoking to be avoided',
         ],
+        imgSource: '/assets/R.svg',
       },
     ],
   };
@@ -59,34 +63,40 @@ export class AIPrescriptionComponent {
           pathId: '7XwloZtxCO',
           sections: [
             {
-              title: 'Regimenal Therapy 💆‍♂️',
+              title: 'Regimenal Therapy ',
               items: [
                 'Steam inhalation (Inkibāb)',
                 'Fomentation on chest (Takmīd)',
                 'Oil massage on chest (Tadhīn)',
               ],
+              imgSource: '/assets/R.svg',
             },
             {
-              title: 'Dietary Recommendations 🍉',
-              items: [
-                'Aghziya Murattiba for dry cough',
-                'Goat milk for dry cough',
-                'Mā’ al-Sha‘īr prepared with crabs',
-                'Mā’ al-‘Asl',
-              ],
-            },
-            {
-              title: 'Dietary Restrictions 🚫',
-              items: ['Aghziya Munaffikha', 'Aghziya Qābiza'],
-            },
-            {
-              title: 'Prevention Strategies 🛡️',
+              title: 'Prevention Strategies',
               items: [
                 'Excessive sleep to be avoided when cough is associated with coryza',
                 'Regimens producing cold, heat, or roughness in the body to be avoided',
                 'Drugs and diets producing roughness in trachea to be avoided',
                 'Smoking to be avoided',
               ],
+              imgSource: '/assets/Fighting against Coronavirus-rafiki.svg',
+            },
+            {
+              title: 'Dietary Recommendations',
+              items: [
+                'Aghziya Murattiba for dry cough',
+                'Goat milk for dry cough',
+                'Mā’ al-Sha‘īr prepared with crabs',
+                'Mā’ al-‘Asl',
+              ],
+              // imgSource: '/assets/Diet-amico.svg',
+              imgSource: '/assets/Boost your inmune system-bro.svg',
+            },
+
+            {
+              title: 'Dietary Restrictions',
+              items: ['Aghziya Munaffikha', 'Aghziya Qābiza'],
+              imgSource: '/assets/7985389.jpg',
             },
           ],
         };

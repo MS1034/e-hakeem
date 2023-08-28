@@ -1,8 +1,7 @@
-li {
+/* li {
   display: block;
 }
 .iconli:before {
-  /*Using a Bootstrap glyphicon as the bullet point*/
   content: url(src/assets/li.png);
   font-family: "Glyphicons Halflings";
   font-size: 9px;
@@ -10,4 +9,6 @@ li {
   margin-top: 4px;
   margin-left: -17px;
   color: #cccccc;
-}
+} */
+
+/* Add any additional styling as needed */

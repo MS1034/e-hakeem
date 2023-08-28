@@ -1,1 +1,1 @@
-require("./functions/questions");
+require("./functions/question");

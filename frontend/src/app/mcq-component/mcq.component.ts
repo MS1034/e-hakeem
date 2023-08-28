@@ -104,37 +104,31 @@ export class McqComponent {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe(async (params) => {
       this.pathId = params.get('id');
       this.loadingQuestion = true;
       if (this.pathId != null) {
-      this.currentQuestion = this.service.getFirstQuestion(this.pathId);
-
-        // alert(JSON.stringify(this.currentQuestion));
+        this.currentQuestion = await this.service.getFirstQuestion(this.pathId);
       }
-      // this.currentQuestion = this.questions[0];
-      //Todo: Handle if there is no pathId
       this.loadingQuestion = false;
+      //Todo: Handle if there is no pathId
     });
   }
 
-  loadNextQuestion(option: any) {
+  async loadNextQuestion(option: any) {
     this.loadingQuestion = true;
-    const ques: string | null = option.nextQuestion;
-    // const ques: string | null = option.nextQuestionId;
+    const nextQuestionId = option.nextQuestionId;
 
-    if (this.pathId && ques) {
-      // this.currentQuestion = this.questions[0];
-      // this.currentQuestion = this.questions[0];
-      this.currentQuestion = this.questions.find(
-        (q: { questionId: any }) => q.questionId === option.nextQuestion
+    if (this.pathId && nextQuestionId) {
+      console.log("nextQuestionId");
+      console.log(nextQuestionId);
+      this.currentQuestion = await this.service.getNextQuestion(
+        nextQuestionId,
+        this.pathId
       );
-      if (!this.currentQuestion) {
-        this.router.navigate(['/AI-Prescription', this.pathId]);
-      }
-      //this.currentQuestion = this.service.getNextQuestion(ques, this.pathId);
+
     } else if (this.pathId) {
-      this.router.navigate(['/AI-Prescription', this.pathId]);
+      this.router.navigate(['/ai-prescription', this.pathId]);
     } else {
       //Todo: Handle if there is no pathId
     }

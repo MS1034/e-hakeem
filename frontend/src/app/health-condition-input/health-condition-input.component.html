@@ -1,0 +1,24 @@
+<form>
+    <div class=" min-w-full     mb-4 border border-gray-200 rounded-sm bg-gray-50">
+        <div class="px-4 py-2 bg-white rounded-t-lg">
+
+            <textarea id="comment" rows="4"
+                class="w-full px-0 text-sm  min-h-[5rem] max-h-32 text-gray-900 bg-white border-0 outline-none text-justify"
+                [placeholder]="placeHolder" required [maxLength]="maxChars"
+                (input)="onTextChanged($event)">{{ promptText }}</textarea>
+        </div>
+        <div class="flex items-center justify-between px-3 py-2 border-t">
+            <button type="submit" (click)="onFormSubmit()"
+                class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-teal-700 rounded-sm focus:ring-4 focus:ring-blue-200">
+                Start Diagnose
+            </button>
+
+
+            <p class=" text-sm text-[#fb8916]"> {{promptText.length}} / {{ maxChars }}</p>
+        </div>
+    </div>
+</form>
+<p class="ml-auto text-sm text-gray-500">
+    Remember, the more concise your writing, the better it is
+    <a href="#" class="text-blue-600 hover:underline">See Examples</a>.
+</p>
