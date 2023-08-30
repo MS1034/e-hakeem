@@ -6,9 +6,34 @@ import { DiagnosisPageComponent } from './diagnosis-page/diagnosis-page.componen
 import { HomePageComponent } from './home-page/home-page.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'diagnosis', component: DiagnosisPageComponent },
-  { path: 'ai/:id', component: McqComponent },
-  { path: 'ai-prescription/:id', component: AIPrescriptionComponent },
+  {
+    path: 'diagnosis',
+    component: DiagnosisPageComponent,
+    data: {
+      reuse: true,
+    },
+  },
+  {
+    path: 'ai/:pathId',
+    component: McqComponent,
+    data: {
+      reuse: true,
+    },
+  },
+  {
+    path: 'ai-prescription/:id',
+    component: AIPrescriptionComponent,
+    data: {
+      reuse: true,
+    },
+  },
+  {
+    path: 'ai/:pathId/:questionId',
+    component: McqComponent,
+    data: {
+      reuse: true,
+    },
+  },
 ];
 
 @NgModule({

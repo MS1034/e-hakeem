@@ -11,6 +11,7 @@ import { ParseService } from '../service/parse.service';
 export class McqComponent {
   loadingQuestion = false;
   pathId: string | null = null;
+  questionId: string | null = null;
   //Todo: Remove When Backend is connected
   questions: any = [
     {
@@ -105,9 +106,15 @@ export class McqComponent {
   ) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe(async (params) => {
-      this.pathId = params.get('id');
+      this.pathId = params.get('pathId');
+      this.questionId = params.get('questionId');
       this.loadingQuestion = true;
-      if (this.pathId != null) {
+      if (this.pathId && this.questionId) {
+        this.currentQuestion = await this.service.getNextQuestion(
+          this.questionId,
+          this.pathId
+        );
+      } else if (this.pathId) {
         this.currentQuestion = await this.service.getFirstQuestion(this.pathId);
       }
       this.loadingQuestion = false;
@@ -120,13 +127,13 @@ export class McqComponent {
     const nextQuestionId = option.nextQuestionId;
 
     if (this.pathId && nextQuestionId) {
-      console.log("nextQuestionId");
+      console.log('nextQuestionId');
       console.log(nextQuestionId);
       this.currentQuestion = await this.service.getNextQuestion(
         nextQuestionId,
         this.pathId
       );
-
+      this.router.navigate(['/ai', this.pathId, nextQuestionId]);
     } else if (this.pathId) {
       this.router.navigate(['/ai-prescription', this.pathId]);
     } else {
